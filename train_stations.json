@@ -1,0 +1,98 @@
+[
+	{
+		"id": "285",
+		"name": "TL",
+		"latitude": "33.64082",
+		"longitude": "-84.443284",
+		"poi_type": "Baggage Claim",
+		"concourse": "T"
+	},
+	{
+		"id": "286",
+		"name": "TR",
+		"latitude": "33.640783",
+		"longitude": "-84.442188",
+		"poi_type": "escalator",
+		"concourse": "T"
+	},
+	{
+		"id": "287",
+		"name": "AL",
+		"latitude": "33.640774",
+		"longitude": "-84.439348",
+		"poi_type": "escalator",
+		"concourse": "A"
+	},
+	{
+		"id": "288",
+		"name": "AR",
+		"latitude": "33.640822",
+		"longitude": "-84.438979",
+		"poi_type": "escalator",
+		"concourse": "A"
+	},
+	{
+		"id": "289",
+		"name": "BL",
+		"latitude": "33.640769",
+		"longitude": "-84.436078",
+		"poi_type": "escalator",
+		"concourse": "B"
+	},
+	{
+		"id": "290",
+		"name": "BR",
+		"latitude": "33.640822",
+		"longitude": "-84.435694",
+		"poi_type": "escalator",
+		"concourse": "B"
+	},
+	{
+		"id": "291",
+		"name": "CL",
+		"latitude": "33.640765",
+		"longitude": "-84.432846",
+		"poi_type": "escalator",
+		"concourse": "C"
+	},
+	{
+		"id": "292",
+		"name": "CR",
+		"latitude": "33.640808",
+		"longitude": "-84.432355",
+		"poi_type": "escalator",
+		"concourse": "C"
+	},
+	{
+		"id": "293",
+		"name": "DL",
+		"latitude": "33.640771",
+		"longitude": "-84.429438",
+		"poi_type": "escalator",
+		"concourse": "D"
+	},
+	{
+		"id": "294",
+		"name": "DR",
+		"latitude": "33.640807",
+		"longitude": "-84.429089",
+		"poi_type": "escalator",
+		"concourse": "D"
+	},
+	{
+		"id": "295",
+		"name": "ES",
+		"latitude": "33.64077",
+		"longitude": "-84.426633",
+		"poi_type": "escalator",
+		"concourse": "E"
+	},
+	{
+		"id": "296",
+		"name": "FS",
+		"latitude": "33.640277",
+		"longitude": "-84.420496",
+		"poi_type": "escalator",
+		"concourse": "F"
+	}
+]

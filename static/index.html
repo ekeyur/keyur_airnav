@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AirNav</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/angular.js"></script>
+    <script src="js/angular-ui-router.js"></script>
+    <script src="js/angular-leaflet-directive.min.js"></script>
+    <script src="js/airport.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/openWeather.js"></script>
+    <script src="js/jquery.simpleWeather.js"></script>
+    <script src="js/jquery.simpleWeather.min.js"></script>
+
+
+
+    <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+    <script src="https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js"></script>
+    <script src="js/L.Control.Locate.min.js"></script>
+    <!-- <script src="https://domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script> -->
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css" />
+    <!-- <link rel="stylesheet" href="https://domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.css" /> -->
+    <link rel="stylesheet" href="css/L.Control.Locate.min.css">
+    <link rel="stylesheet" href="css/L.Control.Locate.min.css.map">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hind|Open+Sans|Raleway" rel="stylesheet">
+
+</head>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $.simpleWeather({
+            location: 'Atlanta, GA',
+            woeid: '',
+            unit: 'f',
+            success: function(weather) {
+                html = '<p>' + weather.temp + '&deg;' + weather.units.temp + '</p>';
+                $("#weather").html(html);
+            },
+            error: function(error) {
+                $("#weather").html('<p>' + error + '</p>');
+            }
+        });
+    });
+</script>
+
+<body ng-app="airport_connect">
+    <ui-view></ui-view>
+
+
+</body>
+</html>

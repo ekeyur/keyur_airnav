@@ -1,0 +1,119 @@
+<div class="splashDiv" ng-show="home">
+    <div class="top-half">
+        <div class="bigLogo">
+            <img src="img/white_logo.png" alt="">
+        </div>
+        <div class="welcome">
+            Welcome to ATL-Hartsfield Jackson!
+        </div>
+        <div id="weather" class="current-weather"></div>
+    </div>
+    <div class="bottom-half">
+        <div class="beta">
+            <p>pssst! This app is in beta</p>
+            <div class="welcomeButtons">
+                <div class="demoButton">
+                    <a href="https://github.com/DigitalCrafts-September-2016-Cohort/the_a_team2">View Demo</a>
+                </div>
+                <div ng-click="useApp()" class="appButton">
+                    Use Anyway
+                </div>
+            </div>
+        </div>
+        <div class="app-banner">
+            <div class="getapp">Get the app:</div>
+            <div class="app-icons">
+                <a class="left" href="#"><i class="fa fa-apple" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-android" aria-hidden="true"></i></a>
+            </div>
+            <div class="legal">
+                Copyright (c) 2016 AirNav All Rights Reserved.
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div ng-show="!navigating" class="top-box">
+    <div class="logoDiv">
+        <img class="logo" src="img/red_logo.png" alt="">
+    </div>
+    <input class="search-input" ng-change="search()" ng-model="query" type="text" name="search" placeholder="Where to?  (A30, Starbucks)">
+</div>
+
+<!-- Hides search results upon click of "Go" -->
+<div ng-hide="navigating" ng-if="show_results" class="search-results">
+    <div class="search-result" ng-repeat="result in results | orderBy: ['-s_index', '-time']: true | limitTo: 15 track by $index">
+        <div class="icon" ng-switch="result.poi_type">
+            <i ng-switch-when="restaurant" class="fa fa-cutlery" aria-hidden="true"></i>
+            <i ng-switch-when="gate" class="fa fa-plane" aria-hidden="true"></i>
+            <i ng-switch-when="toilet" class="fa fa-male" aria-hidden="true"></i>
+            <i ng-switch-when="retail" class="fa fa-shopping-bag" aria-hidden="true"></i>
+            <i ng-switch-when="station" class="fa fa-subway" aria-hidden="true"></i>
+            <i ng-switch-when="baggage-claim" class="fa fa-suitcase" aria-hidden="true"></i>
+            <i ng-switch-when="coffee" class="fa fa-coffee" aria-hidden="true"></i>
+            <i ng-switch-when="concourse" class="fa fa-plane" aria-hidden="true"></i>
+            <i ng-switch-when="fast_food" class="fa fa-cutlery" aria-hidden="true"></i>
+        </div>
+        <div class="result">
+            <p class="result-name">{{result.name}}</p>
+            <p class="result-concourse">Concourse {{result.concourse}}</p>
+        </div>
+        <div class="time">
+            <p>({{result.time}} min)</p>
+        </div>
+        <div class="go" ng-click="startRoute(result)">
+            <p>GO</p>
+        </div>
+    </div>
+</div>
+<!-- //Hidden header for displaying step by step directions -->
+<div ng-show="navigating" class="top-box">
+    <div class="logoDiv">
+        <img class="logo" src="img/red_logo.png" alt="">
+    </div>
+    <div class="stepDiv">{{step_by_step}}</div>
+    <div class="logoDiv">
+        <i ng-if="!show_all_steps" class="fa fa-angle-double-down" style="font-size: 2em; color: #cbcbcb;" aria-hidden="true" ng-click="showSteps()"></i>
+        <i ng-if="show_all_steps" class="fa fa-angle-double-up" style="font-size: 2em; color: #cbcbcb;" aria-hidden="true" ng-click="showSteps()"></i>
+    </div>
+</div>
+
+<div ng-show="navigating" ng-if="show_all_steps" class="search-results">
+    <div class="search-result" ng-repeat="step in steps track by $index">
+        <div class="dot">
+            <i ng-show="step_by_step === step.instruction" class="fa fa-hand-o-right" style="color: #ef473a" aria-hidden="true"></i>
+            <!-- <i ng-hide="step_by_step === step" style="font-size: .6em;" class="fa fa-circle" aria-hidden="true"></i> -->
+        </div>
+        <div class="step">
+            {{step.instruction}}
+            <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{step.distance}} -->
+        </div>
+    </div>
+</div>
+
+
+<div class="map-container">
+    <leaflet id="map" lf-center="center" defaults="defaults" controls="controls" width="100%"></leaflet>
+</div>
+
+<!-- //Hidden footer for displaying time until destination -->
+<div class="footer">
+    <div ng-show="navigating" class="footer-content">
+        <div class="time-nav">{{time_left}} min</div>
+        <div ng-click="stopNav()" class="cancel">Exit</div>
+    </div>
+    <div ng-hide="navigating" class="footer-content">
+        <div class="homefooter">Welcome to ATL!</div>
+    </div>
+</div>
+
+<div class="arrivedDiv" ng-show="arrived">
+    <div class="arrivedMessage">
+        <p class="you">You have arrived</p>
+        <p class="enjoy">Enjoy your trip!</p>
+    </div>
+    <div ng-click="stopNav()" class="arrivedButton">
+        Continue
+    </div>
+</div>

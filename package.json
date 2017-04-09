@@ -1,0 +1,28 @@
+{
+  "name": "node_airnav",
+  "version": "1.0.0",
+  "description": "Airport routing app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DigitalCrafts-September-2016-Cohort/the_a_team2.git"
+  },
+  "keywords": [
+    "airport",
+    "navigation"
+  ],
+  "author": "keyur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DigitalCrafts-September-2016-Cohort/the_a_team2/issues"
+  },
+  "homepage": "https://github.com/DigitalCrafts-September-2016-Cohort/the_a_team2#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "express": "^4.15.2",
+    "node-dijkstra": "^2.4.1"
+  }
+}
