@@ -268,9 +268,11 @@ def all_s_paths(poi):
                     s_path_dict[str(poi[i]['id'])+"-"+str(poi[j]['id'])+"-dist"] = dist_sum
                     s_path_dict[str(poi[i]['id'])+"-"+str(poi[j]['id'])+"-route"] = temp_arr
 #     # --------------------
-all_s_paths(initial_pointsJSON)
-with open('all_s_paths.json', 'w') as f:
-    json.dump(s_path_dict, f)
+# uncomment this code to remake the dictionary of all the points
+#-----------------------------------
+# all_s_paths(initial_pointsJSON)
+# with open('all_s_paths.json', 'w') as f:
+#     json.dump(s_path_dict, f)
 # -----------------------
 
 
@@ -403,4 +405,4 @@ def search():
     #     # print search_points
     #     return jsonify(search_points)
 
-# app.run()
+app.run()
