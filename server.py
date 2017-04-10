@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+# from all_s_paths import all_paths
 # from dotenv import load_dotenv, find_dotenv
 import heapq
 import os,io
@@ -22,6 +23,7 @@ app = Flask('Connect',static_url_path='',static_folder=static_folder)
 #     tk = json.load(ts)
 #
 # initial_pointsJSON = tk
+
 
 with open(base_dir + '/points.json') as json_file:
    pointsJSON = json.load(json_file)
@@ -291,12 +293,16 @@ def shortest_Path():
     origin = request.args.get('origin')
     destination = request.args.get('destination')
     # print g.get_distance('5288','5290')
+#--------------------------------------------
     route_dict = {}
     instructions = []
     points_only = g.shortest_path(origin,destination)
+
     points_only.append(origin)
     points_only.reverse()
     points = []
+
+#----------------------------------------
 
     #distance to destination as we move along the path
     d_sum=0
@@ -366,11 +372,25 @@ def search():
     # print request.args.get('origin_id')
     # search_origin = '221'
     search_points = []
-    if len(search) > 1:
+    search_route = []
+    if len(search) > 2:
         for i in range(0,len(pointsJSON)):
            # print 'ID: ' + pointsJSON[i]['id']
             if search in pointsJSON[i]['name'].lower() and pointsJSON[i]['poi_type'] != "center" and pointsJSON[i]['poi_type'] != "hcenter" and pointsJSON[i]['poi_type'] != "train" and pointsJSON[i]['poi_type'] != "escalator":
+
                 search_route = g.shortest_path(search_origin,pointsJSON[i]['id'])
+
+                search_string = search_origin+"-"+pointsJSON[i]['id']+"-"+"route"
+
+                # print all_paths[search_string]
+
+
+                # print (all_paths["301-299-route"])
+
+                # search_route = all_s_paths[search_string]
+
+
+                # search_route = all_s_paths[]
                 # print search_route
                 if search_route:
                     search_route.append(search_origin)
