@@ -425,4 +425,5 @@ def search():
     #     # print search_points
     #     return jsonify(search_points)
 
-app.run()
+if __name__ == '__main__':
+	app.run()
