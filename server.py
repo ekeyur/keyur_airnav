@@ -363,6 +363,9 @@ def shortest_Path():
 def all_points():
     return jsonify(pointsJSON);
 
+all_paths_dict = {}
+all_dist_dict = {}
+
 #route that returns points that are searched by names
 @app.route('/search')
 def search():
@@ -373,14 +376,25 @@ def search():
     # search_origin = '221'
     search_points = []
     search_route = []
-    if len(search) > 2:
+    if len(search) > 1:
         for i in range(0,len(pointsJSON)):
            # print 'ID: ' + pointsJSON[i]['id']
             if search in pointsJSON[i]['name'].lower() and pointsJSON[i]['poi_type'] != "center" and pointsJSON[i]['poi_type'] != "hcenter" and pointsJSON[i]['poi_type'] != "train" and pointsJSON[i]['poi_type'] != "escalator":
 
+                search_string = search_origin+"-"+pointsJSON[i]['id']+"-"+"route"
+
                 search_route = g.shortest_path(search_origin,pointsJSON[i]['id'])
 
-                search_string = search_origin+"-"+pointsJSON[i]['id']+"-"+"route"
+                # print "dfadsfasdfasdf"
+                # print all_paths[search_string]
+
+
+                # if search_string in all_paths_dict:
+                #     search_route = all_paths_dict[search_string]
+                # else:
+                #     search_route = g.shortest_path(search_origin,pointsJSON[i]['id'])
+                #     all_paths_dict[search_string] = search_route
+
 
                 # print all_paths[search_string]
 
@@ -395,7 +409,9 @@ def search():
                 if search_route:
                     search_route.append(search_origin)
                     dist_sum = 0
+                    # print search_route
                     for j in range(0,len(search_route)-1):
+                        # print search_route[j]
                         dist_sum += g.get_distance(search_route[j+1],search_route[j])
                     time = round(dist_sum/270,2)
                     # print dist_sum
