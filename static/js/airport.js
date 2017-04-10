@@ -348,6 +348,22 @@ app.controller('NavController', function($scope, $state, AirportConnect, leaflet
 
             }
 
+            console.log("fasdfasdlfjas;dlfkja;sdkf;asdlfkj;asld");
+
+            for(var k=0;k<steps.length-2;k++){
+              console.log("hello, i am in the new loop");
+              if((steps[k].instruction === "Go down the escalator") && (steps[k+1].instruction === "Go up the escalator")){
+                steps.splice(k+1,1);
+              }
+              if((steps[k].instruction === "Go up the escalator") && (steps[k+1].instruction === "Get off the train")){
+                var temp = steps[k].instruction;
+                steps[k].instruction = steps[k+1].instruction;
+                steps[k+1].instruction = temp;
+              }
+            }
+
+            console.log("These are the steps");
+            console.log(steps);
             // $scope.distance = distance;
             $scope.steps = steps;
             // console.log(steps);

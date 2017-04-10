@@ -350,7 +350,8 @@ def shortest_Path():
                     instructions.append("Stay on the train")
             else:
                 instructions.append("Get on the train")
-    print dist_to_dest
+
+    # print dist_to_dest
     route_final = {
                    'points': points,
                    'instructions': instructions,
@@ -385,19 +386,12 @@ def search():
 
                 search_route = g.shortest_path(search_origin,pointsJSON[i]['id'])
 
-                # print "dfadsfasdfasdf"
-                # print all_paths[search_string]
-
 
                 # if search_string in all_paths_dict:
                 #     search_route = all_paths_dict[search_string]
                 # else:
                 #     search_route = g.shortest_path(search_origin,pointsJSON[i]['id'])
                 #     all_paths_dict[search_string] = search_route
-
-
-                # print all_paths[search_string]
-
 
                 # print (all_paths["301-299-route"])
 
