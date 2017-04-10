@@ -128,16 +128,25 @@ app.controller('NavController', function($scope, $state, AirportConnect, leaflet
             //If the user location is found
             map.on('locationfound', function (e) {
 
-              console.log("LOCATION_FOUND");
-              let p =  $scope.getOriginNode(e.latlng.lat, e.latlng.lng);
-                $scope.origin = {
-                "id": p.properties.name,
-            		"name": p.properties.realname,
-            		"latitude": p.geometry.coordinates[1],
-            		"longitude": p.geometry.coordinates[0],
-            		"poi_type": p.properties.type,
-            		"concourse": p.properties.concourse
-                };
+              // console.log("LOCATION_FOUND");
+              // let p =  $scope.getOriginNode(e.latlng.lat, e.latlng.lng);
+              //   $scope.origin = {
+              //   "id": p.properties.name,
+            	// 	"name": p.properties.realname,
+            	// 	"latitude": p.geometry.coordinates[1],
+            	// 	"longitude": p.geometry.coordinates[0],
+            	// 	"poi_type": p.properties.type,
+            	// 	"concourse": p.properties.concourse
+              //   };
+
+              $scope.origin = {
+              "id": "42",
+              "name": "B8",
+              "latitude": "33.638719",
+              "longitude": "-84.436027",
+              "poi_type": "gate",
+              "concourse": "B"
+              };
 
             });
             //If the user location is NOT found
@@ -238,18 +247,27 @@ app.controller('NavController', function($scope, $state, AirportConnect, leaflet
             });
             //If the user location is found
             map.on('locationfound', function (e) {
-                console.log("LocationFound");
+                // console.log("LocationFound");
                 console.log("current location",e.latlng, e.accuracy);
                 // $scope.getOriginNode(e.latlng.lat, e.latlng.lng);
-                let k =  $scope.getOriginNode(e.latlng.lat, e.latlng.lng);
-                  $scope.origin = {
-                  "id": k.properties.name,
-              		"name": k.properties.realname,
-              		"latitude": k.geometry.coordinates[1],
-              		"longitude": k.geometry.coordinates[0],
-              		"poi_type": k.properties.type,
-              		"concourse": k.properties.concourse
-                  };
+                // let k =  $scope.getOriginNode(e.latlng.lat, e.latlng.lng);
+                //   $scope.origin = {
+                //   "id": k.properties.name,
+              	// 	"name": k.properties.realname,
+              	// 	"latitude": k.geometry.coordinates[1],
+              	// 	"longitude": k.geometry.coordinates[0],
+              	// 	"poi_type": k.properties.type,
+              	// 	"concourse": k.properties.concourse
+                //   };
+
+                $scope.origin = {
+                "id": "42",
+            		"name": "B8",
+            		"latitude": "33.638719",
+            		"longitude": "-84.436027",
+            		"poi_type": "gate",
+            		"concourse": "B"
+                };
 
             });
             // If the user location is NOT found
