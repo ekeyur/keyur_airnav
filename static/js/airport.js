@@ -122,7 +122,7 @@ app.controller('NavController', function($scope, $state, AirportConnect, leaflet
                 enableHighAccuracy: true
             });
 
-            console.log("Everything shoud be printed below");
+
 
 
             //If the user location is found
@@ -234,7 +234,7 @@ app.controller('NavController', function($scope, $state, AirportConnect, leaflet
 
     //Search All Routes given an origin point object
     $scope.search = function() {
-        console.log($scope.query);
+
 
         leafletData.getMap('map').then(function(map) {
             //Try to get user location
@@ -288,7 +288,8 @@ app.controller('NavController', function($scope, $state, AirportConnect, leaflet
         //Call search API and bind results to scope variable
         AirportConnect.getSearchResults($scope.query, $scope.origin).success(function(searchResults) {
             $scope.results = searchResults;
-            // console.log(JSON.stringify($scope.results))
+
+            console.log(JSON.stringify($scope.results))
             if ($scope.results.length > 0){
                 $scope.show_results = true;
             } else {
@@ -366,10 +367,10 @@ app.controller('NavController', function($scope, $state, AirportConnect, leaflet
 
             }
 
-            console.log("fasdfasdlfjas;dlfkja;sdkf;asdlfkj;asld");
+
 
             for(var k=0;k<steps.length-2;k++){
-              console.log("hello, i am in the new loop");
+
               if((steps[k].instruction === "Go down the escalator") && (steps[k+1].instruction === "Go up the escalator")){
                 steps.splice(k+1,1);
               }
@@ -380,8 +381,7 @@ app.controller('NavController', function($scope, $state, AirportConnect, leaflet
               }
             }
 
-            console.log("These are the steps");
-            console.log(steps);
+
             // $scope.distance = distance;
             $scope.steps = steps;
             // console.log(steps);
