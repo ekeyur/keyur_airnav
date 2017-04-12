@@ -37,6 +37,7 @@ def add2way_vertex(origin,destination,distance):
     g.add_vertex(str(origin),{str(destination):distance})
     g.add_vertex(str(destination),{str(origin):distance})
 
+
 class Graph:
 
     def __init__(self):
